@@ -1,0 +1,1 @@
+f=0;exec("f+=sum(map(int,input().split()));"*int(input()));print(f)

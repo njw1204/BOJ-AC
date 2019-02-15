@@ -1,0 +1,6 @@
+x=input()
+a,b=x.count(':-)'),x.count(':-(')
+if a==b==0: print('none')
+elif a==b: print('unsure')
+elif a>b: print('happy')
+else: print('sad')

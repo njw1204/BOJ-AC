@@ -1,0 +1,5 @@
+N=int(input())
+X=input().count('A')
+if X>N/2: print('A')
+elif X<N/2: print('B')
+else: print('Tie')

@@ -1,0 +1,1 @@
+for _ in range(int(input())): x=input();t=str(int(x)**2);print('YES'if len(t)-t.rfind(x)==len(x)else'NO')

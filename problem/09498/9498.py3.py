@@ -1,0 +1,1 @@
+print(("F"*6+"DCBAA")[int(input())//10])

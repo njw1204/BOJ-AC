@@ -1,0 +1,1 @@
+for _ in input():print(_ if _.isupper()else'',end='')

@@ -1,0 +1,1 @@
+print(str(bool(eval(input().replace("AND","&").replace("OR","|").replace("true","1").replace("false","0")))).lower())

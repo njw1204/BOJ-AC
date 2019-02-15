@@ -1,0 +1,6 @@
+num=int(input())
+if num==1: print(65)
+elif num==2: print(17)
+elif num==3: print(4)
+elif num==4: print(4)
+elif num==5: print(64)

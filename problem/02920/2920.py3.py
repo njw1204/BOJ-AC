@@ -1,0 +1,1 @@
+a=input()[::2];b="12345678";print({a:"mixed",b:"ascending",b[::-1]:"descending"}[a])

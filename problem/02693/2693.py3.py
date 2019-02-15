@@ -1,0 +1,1 @@
+exec('print(sorted([*map(int,input().split())])[-3]);'*int(input()))

@@ -1,0 +1,87 @@
+#include <iostream>
+using namespace std;
+
+int64_t pow10[10] = {0};
+
+int CheckDecNum(long long num, int digit) { // 감소하는 수일시 -1, 아닐시 문제되는 자리값 반환
+  for (int i = 0; i < digit; i++) {
+    long long temp_pow10 = pow10[i];
+    for (int j = i + 1; j < digit + 1; j++) {
+      if ((num / temp_pow10 % 10) >= (num / pow10[j] % 10))
+        return i;
+    }
+  }
+  return -1;
+}
+
+int main() {
+  int dp[10][10] = {0}; // i = i+1자리수, j = 첫번째 자리 숫자
+  int N, count = 9;     // count = 지금까지 구한 감소하는 수 개수
+  int digit, first_num, second_num;
+
+  cin >> N;
+  /*1038번 풀이에 이거 하나만 추가하면 끝*/
+  N--;
+  /**/
+  for (int i = 0; i < 10; i++) {
+    dp[0][i] = 1;
+  }
+  if (N < 11) {
+    cout << N;
+    return 0;
+  }
+
+  bool finish_loop = false;
+  for (int i = 1; i < 10 && (!finish_loop); i++) {
+    for (int j = i; j < 10 && (!finish_loop); j++) { // i+1자리(현재 구하는 자리)의 최소 숫자는 i
+      for (int k = i - 1; k < j && (!finish_loop); k++) { // i자리(이전 자리)의 최소 숫자는 i-1, 최대 숫자는 j-1
+        count += dp[i - 1][k];
+        if (count >= N) { // 지금까지 구한 감소하는 수 개수가 N개보다 많거나 같으면
+          count -= dp[i - 1][k]; // 지금 구한건 다시 뺀다.
+          finish_loop = true;
+          // 현재 구간안에 우리가 찾는 감소하는 수가 있다.
+          // 자리수, 첫번째 숫자, 두번째 숫자를 설정
+          digit = i;
+          first_num = j;
+          second_num = k;
+          break;
+        } else {
+          dp[i][j] += dp[i - 1][k];
+        }
+      }
+    }
+  }
+  if (finish_loop == false) {
+    cout << -1;
+    return 0;
+  }
+  // pow10 값을 미리 저장해둠
+  for (int i = 0; i < 10; i++) {
+    pow10[i] = 1;
+    for (int j = 0; j < i; j++) {
+      pow10[i] *= 10;
+    }
+  }
+
+  long long result = first_num * 10 + second_num;
+  for (int i = 1; i < digit; i++) result *= 10; // first_num 과 second_num 설정
+  for (int i = 1; i < digit - 1; i++) { // 그 외 자리를 최솟값으로 설정
+    result += pow10[i] * i;
+  }
+  while (1) {
+    int check_data = CheckDecNum(result, digit);
+    if (check_data == -1) {
+      count++;
+      if (count == N) break;
+      result++;
+    } else if (check_data > 8) {
+      cout << "Error!" << endl;
+      return 0;
+    } else {
+    //result = ((result / pow10[check_data]) + (10 - (result / pow10[check_data] % 10))) * pow10[check_data];
+      result += pow10[check_data + 1] - (result % pow10[check_data + 1]);
+    }
+  }
+  printf("%lld", result);
+  return 0;
+}

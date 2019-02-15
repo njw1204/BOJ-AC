@@ -1,0 +1,1 @@
+exec('print("EABCD"[input().count("0")]);'*3)

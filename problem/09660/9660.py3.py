@@ -1,0 +1,1 @@
+print('SK' if 'WLWWWWL'[(int(input())-1)%7]=='W' else 'CY')

@@ -1,0 +1,1 @@
+print(*divmod(eval('+int(input())'*4),60))

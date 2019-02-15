@@ -1,0 +1,1 @@
+print(eval('int(input())-'*10+'0'))

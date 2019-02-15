@@ -1,0 +1,1 @@
+print'VFJalopalortr'[2-input()%3::3]+'eon'

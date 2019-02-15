@@ -1,0 +1,1 @@
+i=0;exec('i+=int(input());'*5);print(i)

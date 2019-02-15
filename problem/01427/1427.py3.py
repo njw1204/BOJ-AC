@@ -1,0 +1,1 @@
+for i in sorted(map(int,[*input()]))[::-1]:print(i,end='')

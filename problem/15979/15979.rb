@@ -1,0 +1,1 @@
+a,b=gets.split;p [a.to_i.gcd(b.to_i),2].min
