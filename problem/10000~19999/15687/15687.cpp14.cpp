@@ -1,11 +1,1 @@
-#define assert
-struct Rectangle{
-Rectangle(int,int){}
-int get_width()const{}
-int get_height()const{}
-int set_width(int){}
-int set_height(int){}
-int area()const{}
-int perimeter()const{}
-int is_square()const{}
-};
+struct Rectangle{int w,h;Rectangle(int w,int h):w(w),h(h){}int get_width()const{return w;}int get_height()const{return h;}void set_width(int n){if(n>0&&n<1001)w=n;}void set_height(int n){if(n>0&&n<2001)h=n;}int area()const{return w*h;}int perimeter()const{return (w+h)*2;}bool is_square()const{return w==h;}};

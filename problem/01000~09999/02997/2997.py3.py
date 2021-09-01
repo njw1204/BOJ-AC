@@ -1,0 +1,5 @@
+x=sorted([*map(int,input().split())])
+a,b=(x[1]-x[0]),(x[2]-x[1])
+if a==b: print(x[2]+a)
+elif x[1]-b*2==x[0]: print(x[1]-b)
+else: print(x[2]-a)

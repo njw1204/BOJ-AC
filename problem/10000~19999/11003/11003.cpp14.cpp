@@ -83,7 +83,7 @@ int main() {
   for (int i = 0; i < N; i++) {
     INPUT(arr[i]);
     while (!asdf.empty() && asdf.front() <= i - L) asdf.pop_front();
-    while (!asdf.empty() && arr[asdf.back()] >= arr[i]) asdf.pop_back();
+    while (!asdf.empty() && arr[asdf.back()] > arr[i]) asdf.pop_back();
     asdf.push_back(i);
     cout << arr[asdf.front()] << ' ';
   }

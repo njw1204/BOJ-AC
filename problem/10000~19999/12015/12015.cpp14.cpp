@@ -73,19 +73,15 @@ typedef unsigned long long int ull;
 inline ull GCD(ull a, ull b) { while (b != 0) { ull t = a % b; a = b; b = t; } return a; }
 inline ull LCM(ull a, ull b) { return a * b / GCD(a, b); }
 
-vector<int> LIS;
-
-int main()
-{
-  int ans = 0;
+int main() {
+  vector<int> LIS;
   DINPUT(N);
   REP(i, N) {
     DINPUT(x);
     auto a = lower_bound(LIS.begin(), LIS.end(), x);
     if (a == LIS.end()) LIS.pb(x);
     else *a = x;
-    ans = MAX(ans, LIS.size());
   }
-  PRINT(ans);
+  PRINT(LIS.size());
   return 0;
 }

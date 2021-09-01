@@ -1,0 +1,1 @@
+input();print(sum(min(map(int,i.split()))for i in input().split("-1")))

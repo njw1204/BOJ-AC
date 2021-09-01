@@ -1,0 +1,1 @@
+x=input;x();exec('print('+'+sum(map(int,x().split()))'*2+')')
